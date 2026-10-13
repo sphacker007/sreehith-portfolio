@@ -63,7 +63,7 @@ export default function Home() {
       </div></section>
 
       <section className="education section" id="education"><SectionLabel>BACKGROUND</SectionLabel><h2>EDUCATION</h2><div className="education-grid">
-        <Education image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85" alt="University campus" location="NORTH CAROLINA STATE UNIVERSITY — RALEIGH, NC" degree="Master of Science in Computer Science" note="Graduate study focused on the analytical and computational foundations behind intelligent systems." date="GRADUATED JULY 2025" />
+        <Education image="https://iiif.lib.ncsu.edu/iiif/4funk_1911_Bldg_in_July_2008-2/full/1000,/0/default.jpg" alt="Historic 1911 Building at North Carolina State University" location="NORTH CAROLINA STATE UNIVERSITY — RALEIGH, NC" degree="Master of Science in Computer Science" note="Graduate study focused on the analytical and computational foundations behind intelligent systems." date="GRADUATED JULY 2025" />
         <Education image="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1000&q=85" alt="University architecture" location="SRM INSTITUTE OF SCIENCE AND TECHNOLOGY — INDIA" degree="Bachelor of Technology in Computer Science and Engineering" note="A computer science foundation built through engineering study and practical problem solving." date="GRADUATED JULY 2022" />
       </div></section>
 
