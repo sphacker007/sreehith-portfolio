@@ -75,3 +75,65 @@
   .hero h1 { font-size:clamp(2.45rem,13.1vw,3rem); }
   .hero-title { font-size:.62rem; }
 }
+
+
+/* 2026-10-13: keep desktop links centered and show the complete hero artwork on narrow viewports. */
+@media (min-width:901px) {
+  .nav {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+    align-items:center;
+  }
+  .nav > nav {
+    grid-column:2;
+    justify-self:center;
+  }
+  .nav > .socials {
+    grid-column:3;
+    justify-self:end;
+  }
+}
+@media (max-width:900px) {
+  .hero {
+    isolation:isolate;
+    background:#0f1111;
+  }
+  /*
+   * The original photo is landscape. 'cover' zooms into only a small
+   * sliver on a portrait phone. Scale the SAME photo to fit its width,
+   * instead of replacing it or stretching it vertically.
+   */
+  .hero-image {
+    top:clamp(40px,6svh,68px) !important;
+    right:0 !important;
+    bottom:auto !important;
+    left:0 !important;
+    width:100% !important;
+    height:clamp(320px,58svh,620px) !important;
+    object-fit:contain;
+    object-position:center center;
+    filter:grayscale(1) contrast(1.1) brightness(.78);
+    z-index:0;
+  }
+  .hero-wash {
+    z-index:1;
+    background:linear-gradient(180deg,
+      rgba(0,0,0,.2) 0%,
+      rgba(0,0,0,.08) 33%,
+      rgba(0,0,0,.46) 57%,
+      rgba(0,0,0,.83) 79%,
+      rgba(0,0,0,.92) 100%);
+    pointer-events:none;
+  }
+  .nav { z-index:6; }
+  .mobile-nav { z-index:5; }
+  .hero-copy,.scroll-cue { z-index:3; }
+}
+@media (max-width:760px) {
+  .hero { min-height:660px; }
+  .hero-copy { bottom:clamp(115px,14svh,145px); }
+  .hero h1 { font-size:clamp(2.55rem,13.2vw,5.1rem); }
+}
+@media (max-width:360px) {
+  .hero h1 { font-size:clamp(2.35rem,12.9vw,3rem); }
+}
