@@ -7,14 +7,14 @@ import { useState } from "react";
 
 const nav = ["About", "Skills", "Work", "Education", "Projects", "Expertise"];
 const skills = [
-  ["Programming", "Python · SQL · Pandas · NumPy"],
-  ["Machine Learning", "Scikit-learn · XGBoost · LightGBM · Random Forest · Classification · Regression"],
-  ["Big Data", "PySpark · Apache Spark · Databricks · Delta Lake · BigQuery"],
-  ["Forecasting", "ARIMA · Prophet · Time-Series Analysis"],
-  ["Applied AI", "LLMs · RAG · Embeddings · Vector Search · Gemini · Vertex AI"],
-  ["MLOps", "MLflow · Experiment Tracking · Model Monitoring · Docker · Git · CI/CD"],
-  ["Visualization", "Power BI · Matplotlib · Seaborn · SHAP"],
-  ["Cloud", "AWS · GCP"],
+  ["Programming", "Python · SQL · R · Pandas · NumPy · SciPy"],
+  ["Machine Learning", "Scikit-learn · XGBoost · LightGBM · Classification · Regression · Clustering"],
+  ["Deep Learning & AI", "PyTorch · TensorFlow · NLP · LLMs · RAG · Embeddings · Vector Search"],
+  ["GPU & NVIDIA AI", "RAPIDS cuDF · cuML · CUDA · Triton Inference Server · GPU Performance Analysis"],
+  ["Data Engineering", "Apache Spark · PySpark · Databricks · Delta Lake · Snowflake · ETL/ELT"],
+  ["MLOps", "MLflow · Docker · FastAPI · Git · CI/CD · Model Monitoring · Data Drift"],
+  ["Cloud", "AWS S3 · Amazon SageMaker · Data Pipelines · Data Validation"],
+  ["Visualization & Explainability", "Power BI · Tableau · Matplotlib · Seaborn · SHAP · Feature Importance"],
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) { return <p className="eyebrow">{children}</p>; }
@@ -30,13 +30,13 @@ export default function Home() {
         <header className="nav">
           <button className="menu" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}>{open ? <X size={20} /> : <Menu size={20} />} <span>Menu</span></button>
           <nav aria-label="Primary navigation">{nav.map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={close}>{item}</a>)}</nav>
-          <div className="socials"><a href="mailto:sreehithyachamaneni@gmail.com" aria-label="Email Sreehith"><Mail /></a><a href="https://www.linkedin.com/in/sreehith-yachamaneni/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin /></a></div>
+          <div className="socials"><a href="mailto:ysreehith@gmail.com" aria-label="Email Sreehith"><Mail /></a><a href="https://www.linkedin.com/in/sreehith-yachamaneni/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin /></a></div>
         </header>
         {open && <div className="mobile-nav">{nav.map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={close}>{item}</a>)}</div>}
         <motion.div className="hero-copy" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease: "easeOut" }}>
           <h1>SREEHITH<br />YACHAMANENI</h1>
-          <p className="hero-title">Data Scientist <span>/</span> Machine Learning <span>/</span> Applied AI</p>
-          <p className="hero-intro">Building intelligent solutions from complex data.</p>
+          <p className="hero-title">Data Scientist <span>/</span> Machine Learning <span>/</span> AI Infrastructure</p>
+          <p className="hero-intro">Building reliable machine learning systems from complex data.</p>
         </motion.div>
         <a href="#about" className="scroll-cue">SCROLL TO EXPLORE <ArrowDownRight size={18} /></a>
       </section>
@@ -46,11 +46,11 @@ export default function Home() {
           <div><SectionLabel>ABOUT SREEHITH</SectionLabel><Image className="editorial-image" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85" alt="Laptop showing analytics work" width={900} height={1100} /></div>
           <div className="about-copy">
             <p className="location">USA / DATA &amp; APPLIED AI</p>
-            <p>Data Scientist specializing in machine learning, predictive analytics, forecasting, and applied AI. Transforming complex datasets into reliable models and meaningful business decisions.</p>
+            <p>Data Scientist with 3 years of experience developing machine learning models, analyzing large datasets, and delivering data-driven insights across fintech analytics and AI infrastructure.</p>
             <blockquote>“THE MOST USEFUL MODELS MAKE A COMPLEX QUESTION FEEL CLEAR.”</blockquote>
             <div className="stat"><strong>03</strong><span>YEARS ACROSS<br />DATA SCIENCE</span></div>
-            <p>Across banking, fintech, industrial analytics, and supply-chain applications, Sreehith focuses on practical modeling, rigorous statistical analysis, explainability, and cloud-based data solutions that support confident decisions.</p>
-            <p>His work brings together predictive modeling and modern AI systems—from reliable forecasting pipelines to retrieval-augmented research workflows—always with an eye on the people who need to act on the result.</p>
+            <p>His work spans fraud detection, credit-risk prediction, anomaly detection, feature engineering, model evaluation, and predictive analytics—supported by GPU-accelerated processing, model monitoring, and rigorous statistical analysis.</p>
+            <p>From NVIDIA telemetry and demand forecasting to fintech risk analytics, Sreehith develops reliable machine learning solutions designed to improve analytical accuracy and support better business decisions.</p>
           </div>
         </div>
       </section>
@@ -58,8 +58,8 @@ export default function Home() {
       <section className="skills section" id="skills"><SectionLabel>EXPERTISE</SectionLabel><h2>SKILLS</h2><div className="skill-list">{skills.map(([name, detail], i) => <motion.article key={name} initial={{opacity:0, y:15}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*.04}}><h3>{name}</h3><p>{detail}</p></motion.article>)}</div></section>
 
       <section className="work section" id="work"><SectionLabel>CAREER</SectionLabel><h2>WORK<br />EXPERIENCE</h2><div className="experience-list">
-        <Experience role="Data Scientist" org="Capgemini" meta="USA  /  SEPTEMBER 2025 — PRESENT" body="Developing predictive analytics and applied AI solutions for industrial operations and analyst workflows." points={["Improved early industrial failure detection by 34%.", "Reduced forecasting error by 38% using XGBoost, LightGBM, Databricks, and MLflow.", "Integrated Vertex AI, Gemini, and vector search to reduce analyst research time by 42%."]} tags="Predictive Analytics · Forecasting · MLOps · Applied AI" />
-        <Experience role="Junior Data Scientist" org="Persistent Systems" meta="INDIA  /  FEBRUARY 2021 — JULY 2023" body="Built credit-risk and fraud-detection analytical solutions across Python, SQL, AWS S3, PySpark, and Power BI." points={["Improved high-risk borrower recall by 38%.", "Reduced false-positive fraud alerts by 35%."]} tags="Credit Risk · Fraud Analytics · PySpark · Power BI" />
+        <Experience role="Data Scientist" org="NVIDIA" meta="USA  /  SEPTEMBER 2025 — PRESENT" body="Developing GPU-accelerated machine learning, telemetry analytics, forecasting, anomaly detection, and AI infrastructure solutions." points={["Processed 2.4M telemetry records with Python, SQL, and NVIDIA cuDF, reducing feature-preparation runtime by 30% against a Pandas baseline.", "Trained XGBoost and PyTorch models using GPU utilization, latency, and frame-rate features, improving incident recall by 18% versus logistic regression.", "Built time-series forecasts with XGBoost and MLflow, lowering simulated regional GPU-demand forecast MAE by 15% across six evaluation windows.", "Developed a RAG assistant with NVIDIA NeMo Retriever, embeddings, vector search, and NeMo Evaluator, achieving 90% citation-grounded answers across 100 test questions.", "Deployed FastAPI scoring through NVIDIA Triton Inference Server while tracking latency, drift, and throughput with Prometheus and Grafana."]} tags="GPU ANALYTICS · FORECASTING · RAG · MLOPS · MODEL DEPLOYMENT" />
+        <Experience role="Jr. Data Scientist" org="LatentView Analytics" meta="INDIA  /  FEBRUARY 2021 — JULY 2023" body="Built fraud detection and credit-risk analytics using Python, SQL, Pandas, PySpark, and explainable machine learning." points={["Analyzed 500K payment transactions across five merchant categories to support fraud investigations and transaction-risk analysis.", "Engineered 12 behavioral features and developed logistic regression and XGBoost models achieving 82% recall on a fraud test dataset.", "Integrated 300K loan records and trained logistic regression and LightGBM models achieving 0.78 ROC-AUC for loan-default risk assessment.", "Automated MLflow experiments and Great Expectations data-quality checks across eight experiments to improve reproducibility."]} tags="FRAUD ANALYTICS · CREDIT RISK · PYSPARK · SHAP · POWER BI" />
       </div></section>
 
       <section className="education section" id="education"><SectionLabel>BACKGROUND</SectionLabel><h2>EDUCATION</h2><div className="education-grid">
@@ -68,14 +68,14 @@ export default function Home() {
       </div></section>
 
       <section className="projects section" id="projects"><SectionLabel>SELECTED WORK</SectionLabel><h2>FEATURED<br />PROJECTS</h2><div className="project-list">
-        <Project number="01" title="AI-Powered Elephant Range Extension News Intelligence System" tools="PYTHON · BEAUTIFULSOUP · SELENIUM · GEMINI API" desc="AI-assisted news extraction and data structuring for ecological and wildlife movement research." href="https://github.com/ysreehith/Elephant-Web-Scraper" />
-        <Project number="02" title="Vendor Performance Analysis — Retail Inventory and Sales" tools="SQL · PYTHON · PANDAS · NUMPY" desc="Retail analysis focused on supplier profitability, purchasing concentration, and unsold inventory." href="https://github.com/ysreehith/vendor-performance-analysis-sql-python" />
-        <Project number="03" title="NYC Taxi Fare Estimation and Tip Prediction" tools="PYTHON · RANDOM FOREST · REGRESSION · FEATURE ENGINEERING" desc="Predictive modeling using trip, temporal, and geographical data." href="https://github.com/ysreehith/Taxi-Fare-Estimation-and-Tip-Prediction-for-NYC-Taxi-and-Limousine-Commission-using-Python" />
+        <Project number="01" title="AI-Powered Elephant Range Extension News Intelligence System" tools="PYTHON · REQUESTS · BEAUTIFULSOUP · SELENIUM · GEMINI API" desc="AI-assisted extraction pipeline that transforms semi-structured elephant-range news into research-ready datasets for ecological and wildlife-movement studies." href="https://github.com/ysreehith/Elephant-Web-Scraper" />
+        <Project number="02" title="Vendor Performance Analysis — Retail Inventory and Sales" tools="SQL · PYTHON · PANDAS · NUMPY · HYPOTHESIS TESTING" desc="Retail pipeline and EDA identifying supplier profitability, purchasing concentration, and $2.71M in unsold inventory." href="https://github.com/ysreehith/vendor-performance-analysis-sql-python" />
+        <Project number="03" title="NYC Taxi Fare Estimation and Tip Prediction" tools="PYTHON · RANDOM FOREST · REGRESSION · FEATURE ENGINEERING" desc="Regression and Random Forest models using trip, temporal, and geospatial features for taxi-fare and tip prediction." href="https://github.com/ysreehith/Taxi-Fare-Estimation-and-Tip-Prediction-for-NYC-Taxi-and-Limousine-Commission-using-Python" />
       </div></section>
 
-      <section className="expertise section" id="expertise"><SectionLabel>FOCUS AREAS</SectionLabel><h2>SELECTED<br />EXPERTISE</h2><div className="expertise-links">{["Predictive maintenance for industrial systems", "Credit risk modeling and fraud analytics", "Demand forecasting and time-series analysis", "Explainable AI and model interpretation", "Retrieval-augmented generation systems"].map((topic, index) => <div key={topic}><span>0{index + 1}</span><p>{topic}</p></div>)}</div></section>
+      <section className="expertise section" id="expertise"><SectionLabel>FOCUS AREAS</SectionLabel><h2>SELECTED<br />EXPERTISE</h2><div className="expertise-links">{["GPU-accelerated telemetry analytics", "Fraud detection and credit risk modeling", "Demand forecasting and time-series analysis", "Explainable AI and model interpretation", "Retrieval-augmented generation systems"].map((topic, index) => <div key={topic}><span>0{index + 1}</span><p>{topic}</p></div>)}</div></section>
 
-      <footer className="contact section" id="contact"><SectionLabel>CONTACT</SectionLabel><h2>HAVE A COMPLEX DATA PROBLEM?<br /><em>LET&apos;S SOLVE IT.</em></h2><div className="contact-grid"><p>For collaborations, data science opportunities, or a conversation about intelligent systems.</p><div><a className="contact-link" href="mailto:sreehithyachamaneni@gmail.com"><span className="contact-label"><Mail />sreehithyachamaneni@gmail.com</span><ArrowUpRight /></a><a className="contact-link" href="https://www.linkedin.com/in/sreehith-yachamaneni/" target="_blank" rel="noreferrer"><span className="contact-label"><Linkedin />LinkedIn</span><ArrowUpRight /></a><a className="contact-link" href="https://github.com/ysreehith" target="_blank" rel="noreferrer"><span className="contact-label"><Github />GitHub</span><ArrowUpRight /></a></div></div><div className="footer-line"><span>© 2026 SREEHITH YACHAMANENI — DATA SCIENCE &amp; APPLIED AI</span><span>USA</span></div></footer>
+      <footer className="contact section" id="contact"><SectionLabel>CONTACT</SectionLabel><h2>HAVE A COMPLEX DATA PROBLEM?<br /><em>LET&apos;S SOLVE IT.</em></h2><div className="contact-grid"><p>For collaborations, data science opportunities, or a conversation about intelligent systems.</p><div><a className="contact-link" href="mailto:ysreehith@gmail.com"><span className="contact-label"><Mail />ysreehith@gmail.com</span><ArrowUpRight /></a><a className="contact-link" href="https://www.linkedin.com/in/sreehith-yachamaneni" target="_blank" rel="noreferrer"><span className="contact-label"><Linkedin />LinkedIn</span><ArrowUpRight /></a><a className="contact-link" href="https://github.com/ysreehith" target="_blank" rel="noreferrer"><span className="contact-label"><Github />GitHub</span><ArrowUpRight /></a></div></div><div className="footer-line"><span>© 2026 SREEHITH YACHAMANENI — DATA SCIENCE &amp; APPLIED AI</span><span>USA</span></div></footer>
     </main>
   );
 }
